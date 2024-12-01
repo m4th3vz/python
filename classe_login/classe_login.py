@@ -1,5 +1,6 @@
 import sqlite3
 import os
+import hashlib
 
 # Obter o diretório do script atual
 diretorio_atual = os.path.dirname(os.path.abspath(__file__))
@@ -18,12 +19,18 @@ def criar_banco():
     conn.commit()
     conn.close()
 
-# Função para adicionar um novo usuário
+# Função para gerar o hash da senha
+def gerar_hash_senha(senha):
+    return hashlib.sha256(senha.encode('utf-8')).hexdigest()
+
+# Função para adicionar um novo usuário com hash da senha
 def adicionar_usuario(username, password):
     conn = sqlite3.connect(caminho_banco)
     c = conn.cursor()
-    # Inserir o novo usuário no banco de dados
-    c.execute("INSERT INTO usuarios (username, password) VALUES (?, ?)", (username, password))
+    # Gerar o hash da senha
+    senha_hash = gerar_hash_senha(password)
+    # Inserir o novo usuário com o hash da senha
+    c.execute("INSERT INTO usuarios (username, password) VALUES (?, ?)", (username, senha_hash))
     conn.commit()
     conn.close()
 
@@ -31,8 +38,10 @@ def adicionar_usuario(username, password):
 def verificar_login(username, password):
     conn = sqlite3.connect(caminho_banco)
     c = conn.cursor()
-    # Verificar se o usuário e senha correspondem aos dados no banco de dados
-    c.execute("SELECT * FROM usuarios WHERE username = ? AND password = ?", (username, password))
+    # Gerar o hash da senha fornecida pelo usuário
+    senha_hash = gerar_hash_senha(password)
+    # Verificar se o usuário e a senha hash correspondem aos dados no banco de dados
+    c.execute("SELECT * FROM usuarios WHERE username = ? AND password = ?", (username, senha_hash))
     usuario = c.fetchone()  # Retorna a primeira linha correspondente
     conn.close()
     return usuario
