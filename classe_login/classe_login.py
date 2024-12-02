@@ -2,53 +2,51 @@ import sqlite3
 import os
 import hashlib
 
-# Obter o diretório do script atual
-diretorio_atual = os.path.dirname(os.path.abspath(__file__))
+class SistemaDeLogin:
+    def __init__(self, nome_banco="usuarios.db"):
+        # Obter o diretório do script atual
+        diretorio_atual = os.path.dirname(os.path.abspath(__file__))
+        # Caminho completo do banco de dados
+        self.caminho_banco = os.path.join(diretorio_atual, nome_banco)
+        self.conn = None
+        self.criar_banco()
 
-# Caminho completo do banco de dados
-caminho_banco = os.path.join(diretorio_atual, "usuarios.db")
+    def criar_banco(self):
+        """Cria o banco de dados e a tabela de usuários."""
+        self.conn = sqlite3.connect(self.caminho_banco)
+        c = self.conn.cursor()
+        c.execute('''CREATE TABLE IF NOT EXISTS usuarios (
+                        id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        username TEXT UNIQUE NOT NULL,
+                        password TEXT NOT NULL)''')
+        self.conn.commit()
 
-# Função para criar o banco de dados e a tabela
-def criar_banco():
-    conn = sqlite3.connect(caminho_banco)
-    c = conn.cursor()
-    c.execute('''CREATE TABLE IF NOT EXISTS usuarios (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    username TEXT UNIQUE NOT NULL,
-                    password TEXT NOT NULL)''')
-    conn.commit()
-    conn.close()
+    def gerar_hash_senha(self, senha):
+        """Gera o hash da senha usando SHA-256."""
+        return hashlib.sha256(senha.encode('utf-8')).hexdigest()
 
-# Função para gerar o hash da senha
-def gerar_hash_senha(senha):
-    return hashlib.sha256(senha.encode('utf-8')).hexdigest()
+    def adicionar_usuario(self, username, password):
+        """Adiciona um novo usuário com a senha em hash."""
+        c = self.conn.cursor()
+        senha_hash = self.gerar_hash_senha(password)
+        c.execute("INSERT INTO usuarios (username, password) VALUES (?, ?)", (username, senha_hash))
+        self.conn.commit()
 
-# Função para adicionar um novo usuário com hash da senha
-def adicionar_usuario(username, password):
-    conn = sqlite3.connect(caminho_banco)
-    c = conn.cursor()
-    # Gerar o hash da senha
-    senha_hash = gerar_hash_senha(password)
-    # Inserir o novo usuário com o hash da senha
-    c.execute("INSERT INTO usuarios (username, password) VALUES (?, ?)", (username, senha_hash))
-    conn.commit()
-    conn.close()
+    def verificar_login(self, username, password):
+        """Verifica se o login é válido."""
+        c = self.conn.cursor()
+        senha_hash = self.gerar_hash_senha(password)
+        c.execute("SELECT * FROM usuarios WHERE username = ? AND password = ?", (username, senha_hash))
+        usuario = c.fetchone()  # Retorna a primeira linha correspondente
+        return usuario is not None
 
-# Função para verificar o login do usuário
-def verificar_login(username, password):
-    conn = sqlite3.connect(caminho_banco)
-    c = conn.cursor()
-    # Gerar o hash da senha fornecida pelo usuário
-    senha_hash = gerar_hash_senha(password)
-    # Verificar se o usuário e a senha hash correspondem aos dados no banco de dados
-    c.execute("SELECT * FROM usuarios WHERE username = ? AND password = ?", (username, senha_hash))
-    usuario = c.fetchone()  # Retorna a primeira linha correspondente
-    conn.close()
-    return usuario
+    def fechar_conexao(self):
+        """Fecha a conexão com o banco de dados."""
+        if self.conn:
+            self.conn.close()
 
-# Função principal para interagir com o usuário
 def sistema_de_login():
-    criar_banco()  # Cria o banco de dados e a tabela (se não existir)
+    sistema = SistemaDeLogin()  # Cria a instância do sistema de login
     
     # Menu de opções
     print("Bem-vindo ao sistema de login!")
@@ -58,20 +56,22 @@ def sistema_de_login():
         # Cadastro de novo usuário
         username = input("Escolha um nome de usuário: ")
         password = input("Escolha uma senha: ")
-        adicionar_usuario(username, password)
+        sistema.adicionar_usuario(username, password)
         print("Usuário registrado com sucesso!")
     
     elif opcao == '2':
         # Login de usuário existente
         username = input("Digite seu nome de usuário: ")
         password = input("Digite sua senha: ")
-        if verificar_login(username, password):
+        if sistema.verificar_login(username, password):
             print("Login bem-sucedido!")
         else:
             print("Nome de usuário ou senha incorretos.")
-
+    
     else: 
         print("Escolha uma opção válida.")
+    
+    sistema.fechar_conexao()  # Fechar a conexão após terminar
 
 # Executar o sistema de login
 sistema_de_login()
