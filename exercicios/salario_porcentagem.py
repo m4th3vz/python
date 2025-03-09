@@ -1,4 +1,4 @@
-salario = float(input("Qual o salário?"))
+salario = float(input("Qual o salário?: "))
 
 # Se o salário for maior ou igual a R$1250, aumenta 10%
 if salario >= 1250.00:
