@@ -3,14 +3,13 @@ um número primo'''
 
 num = int(input("Descubra se um número é primo: \n"))
 
-isPrime = True
-current = (num // 2)
-
-for i in range(current, 0, -1):
-    if num % i == 0 and i != 1:
-        isPrime = False
-
-if isPrime:
-    print("O número {} é primo.".format(num))
+if num < 2:
+    print(f"O número {num} não é primo.")
 else:
-    print("O número {} não é primo.".format(num))
+    isPrime = True
+    for i in range(2, int(num ** 0.5) + 1):  # Itera até a raiz quadrada de num
+        if num % i == 0:
+            isPrime = False
+            break  # Sai do loop assim que encontrar um divisor
+    
+    print(f"O número {num} é primo." if isPrime else f"O número {num} não é primo.")
