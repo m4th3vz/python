@@ -1,1 +1,0 @@
-print("emrehliuG"[::-1])
