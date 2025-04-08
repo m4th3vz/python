@@ -4,7 +4,7 @@
 # Primeiro = Ana
 # Último: Souza
 
-nome = "Tertuliano da Silva Moraes Menezes Bueno de Andrada"
+nome = "Tertuliano da Silva Moraes Menezes Bueno de Andrade"
 nome = nome.split()
 print(nome)
 print(f"Primeiro = {nome[0]}")

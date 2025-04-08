@@ -27,13 +27,14 @@ elif forma == 2:  # 5% de desconto
 elif forma == 3:  # Em até 2x no cartão: preço normal
     print("Você selecionou em 2x no cartão.")
     print(f"Pagamento em 2x de R${valor / 2:.2f}.")
-elif forma == 4:  # Em até 3x ou mais: 20% de juros
+elif forma == 4:  # Em 3x ou mais no cartão: 20% de juros
     print("Você selecionou em 3x ou mais no cartão.")
-    desconto = (valor * (20 / 100))
+    juros = valor * 0.20
     parcelas = int(input("Em quantas vezes você deseja parcelar? \n"))
     if parcelas < 3:
         print("A quantidade mínima de parcelas é de 3x no cartão.")
     else:
-        print(f"Pagamento, com juros de 20%, em {parcelas}x de R${(valor + desconto) / parcelas:.2f}.")
+        total = valor + juros
+        print(f"Pagamento, com juros de 20%, em {parcelas}x de R${total / parcelas:.2f}. Total: R${total:.2f}.")
 else:
     print("Por favor, selecione uma alternativa válida. Tente novamente.")
