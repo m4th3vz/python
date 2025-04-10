@@ -1,30 +1,20 @@
-# Função para calcular a média das notas
-def calcular_media(notas):
-    return sum(notas) / len(notas) if notas else 0 # Garante que o código não tente calcular a média se a lista notas estiver vazia
+numeros = []
 
-# Lista para armazenar as notas
-notas = []
-
-print("Digite as notas. Quando terminar, digite 'fim'.")
-
-# Loop para receber notas até o usuário digitar 'fim'
 while True:
-    entrada = input("Digite uma nota ou 'fim' para terminar: ")
-    
-    if entrada.lower() == 'fim':
-        break
-    
-    try:
-        nota = float(entrada)  # Convertemos a entrada para um número float
-        notas.append(nota)  # Adiciona a nota à lista
-    except ValueError:
-        print("Entrada inválida! Por favor, digite um número válido ou 'fim'.")
+    entrada = input("Digite um número (pode ser decimal) ou 'sair' para encerrar: ")
 
-# Verificando se o usuário colocou alguma nota
-if notas:
-    total_notas = len(notas)
-    media = calcular_media(notas)
-    print(f"Você inseriu {total_notas} notas.")
-    print(f"A média das notas é: {media:.2f}")
+    if entrada.lower() == 'sair':
+        break
+
+    try:
+        numero = float(entrada)
+        numeros.append(numero)
+    except ValueError:
+        print("Entrada inválida. Digite um número válido ou 'sair'.")
+
+if numeros:
+    media = sum(numeros) / len(numeros)
+    print(f"\nVocê digitou {len(numeros)} números.")
+    print(f"Média: {media}")
 else:
-    print("Nenhuma nota foi inserida.")
+    print("\nNenhum número foi digitado.")
