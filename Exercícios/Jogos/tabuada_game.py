@@ -8,8 +8,8 @@ def tabuada_game():
     erros = 0
 
     while True:
-        n1 = random.randint(1, 10)
-        n2 = random.randint(1, 10)
+        n1 = random.randint(3, 9)
+        n2 = random.randint(3, 9)
         resultado_correto = n1 * n2
 
         resposta = input(f"Quanto é {n1} x {n2}? ")
