@@ -24,8 +24,9 @@ while True:
         print("VOCÊ ERROU. Tente novamente.")
 
 
+
 # Versão alternativa sem lista
-'''from random import randint
+from random import randint
 
 ran = randint(0, 10)
 tentativas = 0
@@ -42,4 +43,4 @@ while True:
         break
     else:
         print(f"Número digitado: {num}.")
-        print("VOCÊ ERROU. Tente novamente.")'''
+        print("VOCÊ ERROU. Tente novamente.")
