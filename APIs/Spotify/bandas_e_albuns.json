@@ -1,0 +1,445 @@
+{
+  "bandas": {
+    "3 Doors Down": [
+      "Summer Of '99"
+    ],
+    "A Day to Remember": [
+      "You're Welcome"
+    ],
+    "Ad Infinitum": [
+      "Abyss"
+    ],
+    "AFI": [
+      "Sing The Sorrow"
+    ],
+    "Against the Current": [
+      "fever"
+    ],
+    "All That Remains": [
+      "Antifragile"
+    ],
+    "All Time Low": [
+      "The Forever Sessions"
+    ],
+    "Alter Bridge": [
+      "One Day Remains"
+    ],
+    "Altered Sky": [
+      "Without Wonderland"
+    ],
+    "Amaranthe": [
+      "The Catalyst"
+    ],
+    "Anaria": [
+      "Exile"
+    ],
+    "Ankor": [
+      "Stereo"
+    ],
+    "Atreyu": [
+      "The Pronoia Sessions"
+    ],
+    "Avenged Sevenfold": [
+      "Life Is But a Dream…"
+    ],
+    "Avril Lavigne": [
+      "Love Sux"
+    ],
+    "Awaken I Am": [
+      "Blind Love"
+    ],
+    "Beartooth": [
+      "Below"
+    ],
+    "Beyond the Black": [
+      "Beyond The Black"
+    ],
+    "Biffy Clyro": [
+      "The Myth of the Happily Ever After"
+    ],
+    "Black Veil Brides": [
+      "The Phantom Tomorrow"
+    ],
+    "Blameshift": [
+      "Secrets"
+    ],
+    "Boston Manor": [
+      "Datura"
+    ],
+    "Breaking Benjamin": [
+      "Aurora"
+    ],
+    "Broadside": [
+      "Into the Raging Sea"
+    ],
+    "Carousel Kings": [
+      "Plus Ultra"
+    ],
+    "Chevelle": [
+      "Niratias"
+    ],
+    "Coheed and Cambria": [
+      "Vaxis – Act II: A Window of the Waking Mind"
+    ],
+    "Courage My Love": [
+      "Spectra"
+    ],
+    "Creed": [
+      "Human Clay"
+    ],
+    "Creeper": [
+      "Sanguivore"
+    ],
+    "Crossfade": [
+      "We All Bleed"
+    ],
+    "Daughtry": [
+      "Dearly Beloved"
+    ],
+    "Demon Hunter": [
+      "Exile"
+    ],
+    "DIAMANTE": [
+      "American Dream"
+    ],
+    "Disturbed": [
+      "The Sickness"
+    ],
+    "Doll Skin": [
+      "Love Is Dead and We Killed Her"
+    ],
+    "Drown This City": [
+      "Colours We Won't Know"
+    ],
+    "Elliot Minor": [
+      "Solaris"
+    ],
+    "Emery": [
+      "The Night's End: Lullaby covers of Emery songs"
+    ],
+    "Enemy Inside": [
+      "Seven"
+    ],
+    "Escape the Fate": [
+      "Black Mold"
+    ],
+    "Eva Under Fire": [
+      "Love, Drugs & Misery"
+    ],
+    "Evanescence": [
+      "Fallen"
+    ],
+    "Eyes Set to Kill": [
+      "Eyes Set to Kill"
+    ],
+    "Fall Out Boy": [
+      "So Much (for) Stardust"
+    ],
+    "Falling In Reverse": [
+      "Coming Home"
+    ],
+    "Famous Last Words": [
+      "The Incubus"
+    ],
+    "Fireflight": [
+      "Who We Are: The Head and the Heart"
+    ],
+    "Flyleaf": [
+      "Flyleaf"
+    ],
+    "Foo Fighters": [
+      "But Here We Are"
+    ],
+    "Forever the Sickest Kids": [
+      "J.A.C.K."
+    ],
+    "Framing Hanley": [
+      "Envy"
+    ],
+    "Fresno": [
+      "Sua Alegria Foi Cancelada"
+    ],
+    "Ghost": [
+      "Rite Here Rite Now"
+    ],
+    "Gloria": [
+      "Serenata da GG"
+    ],
+    "Go Radio": [
+      "Close the Distance"
+    ],
+    "Good Charlotte": [
+      "Generation Rx"
+    ],
+    "Green Day": [
+      "American Idiot"
+    ],
+    "Hands Like Houses": [
+      "Hands Like Houses"
+    ],
+    "Hawthorne Heights": [
+      "Nine Reasons To Say Goodbye"
+    ],
+    "Hello Danger": [
+      "Shark Attack Party"
+    ],
+    "Hoobastank": [
+      "The Reason"
+    ],
+    "House of Heroes": [
+      "Colors"
+    ],
+    "I Am Giant": [
+      "Life in Captivity"
+    ],
+    "I Prevail": [
+      "True Power"
+    ],
+    "Ice Nine Kills": [
+      "Welcome To Horrorwood (9-Bit)"
+    ],
+    "Imbue No Kudos": [
+      "But What If We Will"
+    ],
+    "In Flames": [
+      "Foregone"
+    ],
+    "Jimmy & Rats": [
+      "Só Há Um Caminho a Seguir"
+    ],
+    "Jimmy Eat World": [
+      "Surviving: Phoenix Sessions"
+    ],
+    "Keane": [
+      "Hopes And Fears 20"
+    ],
+    "Killswitch Engage": [
+      "This Consequence"
+    ],
+    "Lacey Sturm": [
+      "Life Screams"
+    ],
+    "Lacuna Coil": [
+      "Sleepless Empire"
+    ],
+    "Lindemann": [
+      "Live in Moscow"
+    ],
+    "Linkin Park": [
+      "From Zero"
+    ],
+    "Lordi": [
+      "Killection"
+    ],
+    "Lyria": [
+      "Lyria No Estúdio Showlivre"
+    ],
+    "Måneskin": [
+      "Teatro d'ira: Vol. I"
+    ],
+    "Mastodon": [
+      "Crack the Skye"
+    ],
+    "Mayday Parade": [
+      "What It Means to Fall Apart"
+    ],
+    "Meg & Dia": [
+      "Happysad"
+    ],
+    "Metallica": [
+      "72 Seasons"
+    ],
+    "Mudvayne": [
+      "Mudvayne"
+    ],
+    "Muse": [
+      "Absolution XX Anniversary"
+    ],
+    "My Chemical Romance": [
+      "The Black Parade / Living with Ghosts"
+    ],
+    "New Years Day": [
+      "Unbreakable"
+    ],
+    "Oomph!": [
+      "Richter und Henker"
+    ],
+    "P.O.D": [
+      "Veritas"
+    ],
+    "Panic! At The Disco": [
+      "Viva Las Vengeance"
+    ],
+    "Papa Roach": [
+      "Ego Trip"
+    ],
+    "Paramore": [
+      "Re: This Is Why"
+    ],
+    "Pierce The Veil": [
+      "The Jaws of Life"
+    ],
+    "Placebo": [
+      "Collapse Into Never - Live In Europe 2023"
+    ],
+    "Pouring Pix": [
+      "Sobre a Rocha e a Estrela"
+    ],
+    "Queens Of The Stone Age": [
+      "Villains"
+    ],
+    "Rammstein": [
+      "Zeit"
+    ],
+    "Rave the Reqviem": [
+      "EX-EDEN"
+    ],
+    "Red Hot Chili Peppers": [
+      "Return of the Dream Canteen"
+    ],
+    "Scorpions": [
+      "Rock Believer"
+    ],
+    "Scott Stapp": [
+      "The Space Between the Shadows"
+    ],
+    "Seether": [
+      "Si Vis Pacem, Para Bellum"
+    ],
+    "Serj Tankian": [
+      "Invocations"
+    ],
+    "Set It Off": [
+      "Elsewhere"
+    ],
+    "Sick Puppies": [
+      "Fury"
+    ],
+    "Silverstein": [
+      "Antibloom"
+    ],
+    "Simple Plan": [
+      "Still Not Getting Any..."
+    ],
+    "Skarlett Riot": [
+      "Invicta"
+    ],
+    "Skillet": [
+      "Dominion"
+    ],
+    "Slipknot": [
+      "The End, So Far"
+    ],
+    "Smile Empty Soul": [
+      "Oblivion"
+    ],
+    "Stars in Stereo": [
+      "Leave Your Mark"
+    ],
+    "State Champs": [
+      "State Champs"
+    ],
+    "System Of A Down": [
+      "Hypnotize"
+    ],
+    "The Audition": [
+      "Great Danger"
+    ],
+    "The Dead Rabbitts": [
+      "Rumination"
+    ],
+    "The Killers": [
+      "Pressure Machine"
+    ],
+    "The Material": [
+      "Everything I Want to Say"
+    ],
+    "The Nearly Deads": [
+      "We Are the Nearly Deads"
+    ],
+    "The Pretty Reckless": [
+      "Other Worlds"
+    ],
+    "The Rasmus": [
+      "Dark Matters"
+    ],
+    "The Raven Age": [
+      "Blood Omen"
+    ],
+    "The Red Jumpsuit Apparatus": [
+      "The Awakening"
+    ],
+    "The Strokes": [
+      "The Singles - Volume 01"
+    ],
+    "The Used": [
+      "Toxic Positivity"
+    ],
+    "The Wonder Years": [
+      "The Hum Goes on Forever"
+    ],
+    "There for Tomorrow": [
+      "Nightscape"
+    ],
+    "Three Days Grace": [
+      "Explosions"
+    ],
+    "Tiger Army": [
+      "Retrofuture"
+    ],
+    "Tonight Alive": [
+      "Underworld"
+    ],
+    "Trash Boat": [
+      "Don't You Feel Amazing?"
+    ],
+    "Tremonti": [
+      "Marching in Time"
+    ],
+    "Trivium": [
+      "In the Court of the Dragon"
+    ],
+    "Vivendo do Ócio": [
+      "Vivendo do Ócio"
+    ],
+    "We Are The In Crowd": [
+      "Weird Kids"
+    ],
+    "We Were Sharks": [
+      "New Low"
+    ],
+    "Yellowcard": [
+      "Yellowcard"
+    ],
+    "You Me at Six": [
+      "Truth Decay"
+    ],
+    "You, Me, and Everyone We Know": [
+      "Something Heavy"
+    ],
+    "Young Guns": [
+      "Echoes"
+    ],
+    "Yours Truly": [
+      "Toxic"
+    ],
+    "Sister Shotgun": [
+      "Fragments"
+    ],
+    "Melissa VanFleet": [
+      "Ode To The Dark"
+    ],
+    "OCEANDVST": [
+      "Floating"
+    ],
+    "Chrissy Costanza": [
+      "VII"
+    ],
+    "The Funeral Portrait": [
+      "Greetings From Suffocate City"
+    ],
+    "Winona Fighter": [
+      "My Apologies To The Chef"
+    ]
+  }
+}
