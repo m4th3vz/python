@@ -1,68 +1,52 @@
-# O enumerate() é uma função que permite iterar sobre uma sequência enquanto acessa ao mesmo tempo o índice e o valor de cada elemento.
+# Função enumerate() em Python
 
-# Exemplo 1 – Básico com lista
-print("Exemplo 1 – Lista de nomes:")
-nomes = ["Ana", "Bruno", "Carlos"]
-for indice, nome in enumerate(nomes):
-    print(f"{indice}: {nome}")
-print()
+"""
+A função enumerate() é usada para adicionar um índice a um iterável (como uma lista, tupla, etc.)
+e retorna um objeto enumerate que pode ser convertido em uma lista ou utilizado em um loop for.
 
-# Exemplo 2 – Começando o índice em 1
-print("Exemplo 2 – Índice começando em 1:")
-for indice, nome in enumerate(nomes, start=1):
-    print(f"{indice}: {nome}")
-print()
+A sintaxe é:
+    enumerate(iterável, start=0)
+    onde:
+    - iterável: o objeto que será percorrido (como uma lista, tupla, etc.).
+    - start: o índice inicial, que é 0 por padrão, mas pode ser alterado.
+"""
 
-# Exemplo 3 – Usando enumerate com strings
-print("Exemplo 3 – Iterando uma string:")
-texto = "amor"
-for i, letra in enumerate(texto):
-    print(f"Letra '{letra}' está na posição {i}")
-print()
+# Exemplo 1: Usando enumerate() com uma lista
+frutas = ["maçã", "banana", "laranja", "uva"]
+enumerado_frutas = enumerate(frutas)
 
-# Exemplo 4 – Comparação: com e sem enumerate
-print("Exemplo 4 – Comparação com range(len(...)):")
-for i in range(len(nomes)):
-    print(f"{i}: {nomes[i]} (sem enumerate)")
-print()
+# Convertendo o objeto enumerate para uma lista para visualização
+print("Enumerate com lista:", list(enumerado_frutas))
+# Saída: Enumerate com lista: [(0, 'maçã'), (1, 'banana'), (2, 'laranja'), (3, 'uva')]
 
-for i, nome in enumerate(nomes):
-    print(f"{i}: {nome} (com enumerate)")
-print()
+# Exemplo 2: Usando enumerate() em um loop for
+for indice, fruta in enumerate(frutas):
+    print(f"Índice: {indice}, Fruta: {fruta}")
+# Saída:
+# Índice: 0, Fruta: maçã
+# Índice: 1, Fruta: banana
+# Índice: 2, Fruta: laranja
+# Índice: 3, Fruta: uva
 
-# Exemplo 5 – Lista de tuplas (índice e valor)
-print("Exemplo 5 – Criando uma lista de tuplas (índice, valor):")
-numeros = [10, 20, 30]
-enumerados = list(enumerate(numeros))
-print(enumerados)
-print()
+# Exemplo 3: Usando enumerate() com um índice inicial diferente
+for indice, fruta in enumerate(frutas, start=1):  # Começando o índice a partir de 1
+    print(f"Índice: {indice}, Fruta: {fruta}")
+# Saída:
+# Índice: 1, Fruta: maçã
+# Índice: 2, Fruta: banana
+# Índice: 3, Fruta: laranja
+# Índice: 4, Fruta: uva
 
-# Exemplo 6 – Usando enumerate em uma função
-def exibir_tarefas(tarefas):
-    print("Tarefas pendentes:")
-    for i, tarefa in enumerate(tarefas, start=1):
-        print(f"{i}. {tarefa}")
+# Exemplo 4: Usando enumerate() com uma tupla
+cores = ("azul", "verde", "vermelho")
+enumerado_cores = enumerate(cores)
 
-print("Exemplo 6 – Enumerate em função:")
-exibir_tarefas(["Estudar Python", "Fazer exercício", "Ouvir música"])
-print()
+# Convertendo para lista
+print("\nEnumerate com tupla:", list(enumerado_cores))
+# Saída: Enumerate com tupla: [(0, 'azul'), (1, 'verde'), (2, 'vermelho')]
 
-# Exemplo 7 – Enumerate em conjunto com dicionário
-print("Exemplo 7 – Enumerate + Dicionário (criar índice manualmente):")
-nomes = ["João", "Maria", "Pedro"]
-dicionario = {}
-
-for indice, nome in enumerate(nomes):
-    dicionario[indice] = nome
-
-print(dicionario)
-
-# Exemplo 8 – Tuplas com 3 elementos (desempacotamento)
-dados = [
-    (1, "Matheus", "Brasil"),
-    (2, "Ana", "Portugal"),
-    (3, "Yuki", "Japão")
-]
-
-for id, nome, pais in dados:
-    print(f"ID: {id} | Nome: {nome} | País: {pais}")
+# Exemplo 5: Usando enumerate() para iterar com índice e valor e fazer algo com eles
+# Vamos, por exemplo, criar um dicionário com os índices e os valores da lista
+dicionario_frutas = {indice: fruta for indice, fruta in enumerate(frutas)}
+print("\nDicionário com índices e valores:", dicionario_frutas)
+# Saída: Dicionário com índices e valores: {0: 'maçã', 1: 'banana', 2: 'laranja', 3: 'uva'}
