@@ -1,4 +1,4 @@
-'''Faça um programa em Python que abra e reproduza um arquivo mp3'''
+# Faça um programa em Python que abra e reproduza um arquivo mp3
 import pygame
 import time
 import os

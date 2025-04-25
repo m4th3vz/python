@@ -16,11 +16,11 @@ maior = max(lista)
 posicoes_menor = []
 posicoes_maior = []
 
-for i, valor in enumerate(lista):
+for i, valor in enumerate(lista): # enumerate() retorna tanto a posição (i) quanto o valor (valor) de cada elemento.
     if valor == menor:
-        posicoes_menor.append(i)
+        posicoes_menor.append(i) # Adiciona a posição do menor valor na lista com (i)
     if valor == maior:
-        posicoes_maior.append(i)
+        posicoes_maior.append(i) # Adiciona a posição do maior valor na lista com (i)
 
 print(f"\nVocê digitou os valores {lista}")
 print(f"O menor valor é {menor}, nas posições {posicoes_menor}")
