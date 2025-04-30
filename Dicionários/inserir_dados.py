@@ -38,13 +38,24 @@ print("6. Criação direta:", dicionario2)
 dicionario3 = dict([("marca", "Ford"), ("modelo", "Fusion")])
 print("7. Usando dict() com lista de tuplas:", dicionario3)
 
-# 8. Inserção de dados com input()
-dicionario_input = {}  # novo dicionário para este exemplo
-print("\n8. Inserção usando input():")
+# 8. Inserção de valor com input()
+dicionario_1 = {}
 
-for _ in range(2):
-    chave = input("Digite a chave: ")
-    valor = input("Digite o valor: ")
-    dicionario_input[chave] = valor
+dicionario_1["chave_exemplo"] = input("Digite o valor: ")
+print(dicionario_1)
 
-print("Dicionário criado a partir do input:", dicionario_input)
+# 9. Inserção de chave com input()
+dicionario_2 = {}
+
+chave = input("Digite a chave: ")
+dicionario_2[chave] = "valor_exemplo"
+print(dicionario_2)
+
+# 10. Inserção de chave e valor com input()
+dicionario_3 = {}
+
+chave = input("Digite a chave: ")
+valor = input("Digite o valor: ")
+dicionario_3[chave] = valor
+
+print(dicionario_3)
