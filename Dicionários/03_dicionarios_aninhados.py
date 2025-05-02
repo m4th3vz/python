@@ -1,3 +1,5 @@
+# Contatos é um dicionário, onde as chaves são os e-mails e os valores são outros dicionários que contêm informações sobre cada contato (nested dictionaries).
+
 contatos = {
     "guilherme@gmail.com": {"nome": "Guilherme", "telefone": "3333-2221"},
     "giovanna@gmail.com": {"nome": "Giovanna", "telefone": "3443-2121"},
@@ -5,7 +7,7 @@ contatos = {
     "melaine@gmail.com": {"nome": "Melaine", "telefone": "3333-7766"},
 }
 
-resultado = (
-    contatos.values()
-)  # dict_values([{'nome': 'Guilherme', 'telefone': '3333-2221'}, {'nome': 'Giovanna', 'telefone': '3443-2121'}, {'nome': 'Chappie', 'telefone': '3344-9871'}, {'nome': 'Melaine', 'telefone': '3333-7766'}])  # noqa
-print(resultado)
+telefone = contatos["giovanna@gmail.com"]["telefone"]  # "3443-2121"
+print(telefone)
+
+print(contatos["giovanna@gmail.com"])
