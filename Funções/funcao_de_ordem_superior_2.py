@@ -12,14 +12,6 @@ def divisao(a, b):
         return "Erro: divisão por zero!"
     return a / b
 
-# Dicionário que associa nomes a funções
-operacoes = {
-    "adicao": adicao,
-    "subtracao": subtracao,
-    "multiplicacao": multiplicacao,
-    "divisao": divisao
-}
-
 def conta(a, b, funcao):
     resultado = funcao(a, b)
     if funcao == adicao:
@@ -31,6 +23,14 @@ def conta(a, b, funcao):
     elif funcao == divisao:
         print(f"O resultado da divisão é {resultado}")
     return resultado  # Agora retorna
+
+# Dicionário que associa nomes a funções
+operacoes = {
+    "adicao": adicao,
+    "subtracao": subtracao,
+    "multiplicacao": multiplicacao,
+    "divisao": divisao
+}
 
 # Solicita os números ao usuário
 a = int(input("Digite o primeiro número: "))

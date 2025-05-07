@@ -4,5 +4,7 @@ def somar(a, b):
     return resultado
 
 # Chamada da função 'somar'
-soma = somar(3, 5)
-print(f"A soma de 3 e 5 é: {soma}")
+primeira_soma = somar(3, 5)
+segunda_soma = somar(5, 5)
+
+print(f"O resultado da primeira soma é {primeira_soma}, e da segunda é {segunda_soma}.")
