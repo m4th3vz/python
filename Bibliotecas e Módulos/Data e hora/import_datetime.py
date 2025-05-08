@@ -1,5 +1,12 @@
 # Permite trabalhar com datas e horários, oferecendo funções para manipulação e formatação de informações temporais.
-from datetime import datetime, timedelta
+from datetime import date, datetime, timedelta
+
+# Data de hoje
+hoje = date.today()
+print(hoje)
+print(hoje.year)   # ano atual
+print(hoje.month)  # mês atual
+print(hoje.day)    # dia atual
 
 # Data e hora atual
 agora = datetime.now()

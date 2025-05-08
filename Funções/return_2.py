@@ -2,7 +2,6 @@
 def verifica_par(n):
     return n % 2 == 0  # Retorna True se for par, caso contrário False
 
-# Chamada da função 'verifica_par'
 numero = 10
 resultado_par = verifica_par(numero)
 
