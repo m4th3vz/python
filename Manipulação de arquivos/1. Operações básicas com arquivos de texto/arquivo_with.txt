@@ -1,0 +1,2 @@
+Linha 1: Criado com with open.
+Linha 2: O arquivo é fechado automaticamente.

@@ -1,0 +1,4 @@
+Linha 1: Este texto sobrescreveu o conteúdo anterior.
+Linha 2: Tudo que estava antes foi apagado.
+Linha 3: Este texto foi acrescentado ao final.
+Linha 4: Nada do que estava antes foi perdido.

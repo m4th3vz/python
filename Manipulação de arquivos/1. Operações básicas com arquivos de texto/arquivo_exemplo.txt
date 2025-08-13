@@ -1,0 +1,4 @@
+Linha 1: Este arquivo foi criado.
+Linha 2: Se o arquivo já existia, tudo que estava antes foi apagado.
+Linha 3: Este texto foi adicionado ao final.
+Linha 4: Nada do que estava antes foi perdido.
