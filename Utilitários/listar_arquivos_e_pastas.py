@@ -1,3 +1,9 @@
+"""
+Script para listar arquivos e pastas de um diretório no Windows.
+Exibe os itens com cores e ícones diferentes para pastas e arquivos,
+permitindo escolher listar apenas arquivos, apenas pastas ou ambos.
+"""
+
 import os
 
 # Cores ANSI para terminal

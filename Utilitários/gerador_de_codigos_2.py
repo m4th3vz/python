@@ -1,3 +1,8 @@
+"""
+Script para criar uma pasta e gerar múltiplos arquivos de exemplo dentro dela.
+O conteúdo de cada arquivo é genérico e definido previamente, e a quantidade de arquivos é configurável.
+"""
+
 import os
 
 folder_name = "nome_da_pasta"

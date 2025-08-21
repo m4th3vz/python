@@ -1,3 +1,8 @@
+"""
+Script para editar arquivos de playlist XSPF, convertendo os caminhos de arquivos
+entre Windows e Ubuntu. Permite substituir caminhos do Windows para Ubuntu ou o inverso.
+"""
+
 import os
 
 def editar_caminhos_xspf(caminho_arquivo, opcao):

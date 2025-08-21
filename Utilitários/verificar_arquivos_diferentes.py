@@ -1,3 +1,9 @@
+"""
+Script para comparar os arquivos de duas pastas, incluindo subpastas.
+Exibe quais arquivos existem apenas na primeira pasta, apenas na segunda,
+ou informa se ambas contêm os mesmos arquivos.
+"""
+
 import os
 
 def listar_arquivos(caminho):

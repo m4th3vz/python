@@ -1,3 +1,8 @@
+"""
+Script para buscar arquivos em um diretório (e subdiretórios) pelo nome ou extensão.
+Ignora diferenças entre maiúsculas e minúsculas e exibe o caminho completo dos arquivos encontrados.
+"""
+
 import os
 
 def buscar_arquivos(diretorio, nome_ou_extensao):

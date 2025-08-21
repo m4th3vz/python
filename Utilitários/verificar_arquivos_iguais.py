@@ -1,3 +1,8 @@
+"""
+Script para comparar os nomes de arquivos de duas pastas, incluindo subpastas.
+Exibe os arquivos que possuem nomes repetidos entre as duas pastas, ignorando caminhos.
+"""
+
 import os
 
 def listar_nomes_de_arquivos(caminho):

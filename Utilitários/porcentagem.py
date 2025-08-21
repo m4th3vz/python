@@ -1,3 +1,11 @@
+"""
+Script de calculadora de porcentagem com várias funcionalidades:
+1. Calcula X% de um valor Y.
+2. Determina qual porcentagem um valor X representa de Y.
+3. Calcula o aumento de X% sobre um valor Y.
+4. Calcula o desconto de X% sobre um valor Y.
+"""
+
 def calcular_porcentagem():
     print("=== Calculadora de Porcentagem ===")
     print("1 - Quanto é X% de Y")

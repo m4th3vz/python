@@ -1,3 +1,8 @@
+"""
+Script para organizar arquivos de um diretório em subpastas com base em suas extensões.
+Arquivos sem extensão são movidos para uma pasta chamada 'sem_extensao'.
+"""
+
 import os
 import shutil
 

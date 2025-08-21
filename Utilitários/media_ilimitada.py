@@ -1,3 +1,8 @@
+"""
+Script para receber números do usuário até que ele digite 'sair'.
+Calcula e exibe a quantidade de números inseridos e a média deles.
+"""
+
 numeros = []
 
 while True:

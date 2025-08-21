@@ -1,3 +1,8 @@
+"""
+Script para coletar seguidores e seguidos de um usuário no GitHub usando web scraping.
+Exibe os usuários que te seguem, mas que você não segue de volta.
+"""
+
 import requests
 from bs4 import BeautifulSoup
 

@@ -1,3 +1,8 @@
+"""
+Script para verificar o espaço em disco de um diretório especificado.
+Exibe o espaço total, usado e livre em gigabytes (GB).
+"""
+
 import shutil
 
 def verificar_espaco(diretorio):

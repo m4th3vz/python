@@ -1,3 +1,9 @@
+"""
+Script para criar automaticamente um arquivo .gitignore padrão em um projeto Python.
+Inclui regras comuns para arquivos de ambiente, bytecode, logs, configurações do VSCode
+e pastas de virtualenv.
+"""
+
 import os
 
 conteudo = """# Arquivos de ambiente

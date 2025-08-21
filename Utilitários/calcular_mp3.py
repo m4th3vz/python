@@ -1,3 +1,8 @@
+"""
+Script que calcula a duração total de todos os arquivos MP3 em um diretório e suas subpastas.
+Exibe o resultado em horas, minutos e segundos.
+"""
+
 import os  # Módulo para manipulação de arquivos e diretórios
 from mutagen.mp3 import MP3  # Para acessar os metadados de arquivos MP3
 

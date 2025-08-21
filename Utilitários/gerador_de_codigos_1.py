@@ -1,3 +1,8 @@
+"""
+Script para criar automaticamente uma pasta e gerar arquivos de exemplo dentro dela.
+Cada arquivo é criado com um conteúdo genérico definido em um dicionário.
+"""
+
 import os
 
 # Nome da pasta que conterá os arquivos
