@@ -1,3 +1,9 @@
+"""
+Script para contar arquivos em um diretório (e subdiretórios) de acordo com suas extensões.
+Arquivos sem extensão são identificados como "<sem extensão>".
+Também mostra o total de arquivos encontrados.
+"""
+
 import os
 from collections import defaultdict
 

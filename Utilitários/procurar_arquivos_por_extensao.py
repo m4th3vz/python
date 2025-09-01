@@ -1,3 +1,9 @@
+"""
+Script para listar arquivos em um diretório (e subdiretórios).
+Permite filtrar por uma extensão específica (ex: ".txt"), ou listar todos os arquivos se nenhuma extensão for informada.
+Exibe o caminho completo de cada arquivo encontrado e o total de arquivos localizados.
+"""
+
 import os
 
 def listar_arquivos(diretorio, extensao=None):
