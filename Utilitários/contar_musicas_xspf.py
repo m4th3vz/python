@@ -1,3 +1,8 @@
+'''
+Este script lê um arquivo de playlist no formato .xspf (XML Shareable Playlist Format),
+conta o número total de músicas e calcula a duração total da playlist.
+'''
+
 import xml.etree.ElementTree as ET
 
 # Pede o caminho do arquivo ao usuário
