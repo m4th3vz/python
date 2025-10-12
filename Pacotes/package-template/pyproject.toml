@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=65.5.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "package_name"            # Nome do pacote (igual ao diretório principal)
+version = "0.1.0"                # Versão inicial
+description = "Descrição do seu pacote"  # Breve descrição
+readme = "README.md"             # Arquivo README
+license = { text = "MIT" }       # Tipo de licença
+authors = [
+    { name = "Matheus", email = "seuemail@exemplo.com" }
+]
+requires-python = ">=3.10"       # Versão mínima do Python
+
+# Dependências de runtime (igual ao requirements.txt)
+dependencies = [
+    # "numpy>=1.24.0",
+    # "requests>=2.31.0"
+]
+
+# Dependências opcionais (grupos de extras)
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "black",
+    "mypy"
+]
+
+[project.urls]
+Homepage = "https://github.com/seuusuario/seuprojeto"
+Documentation = "https://github.com/seuusuario/seuprojeto#readme"

@@ -1,0 +1,1 @@
+# Dependências de runtime (nenhuma para este exemplo simples)
