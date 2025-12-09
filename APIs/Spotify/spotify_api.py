@@ -4,11 +4,10 @@ import base64
 import json
 import re
 
-# 🧾 Substitua pelas suas chaves do Spotify Developer
 CLIENT_ID = config('CLIENT_ID')
 CLIENT_SECRET = config('CLIENT_SECRET')
 
-# 📂 Carrega bandas e álbuns ouvidos do arquivo JSON
+# Carrega o JSON
 with open("bandas_e_albuns.json", "r", encoding="utf-8") as f:
     dados = json.load(f)
 
@@ -50,7 +49,7 @@ def pegar_lancamento_mais_recente(artist_id, token):
     url = f"https://api.spotify.com/v1/artists/{artist_id}/albums"
     headers = {"Authorization": f"Bearer {token}"}
     params = {
-        "include_groups": "album",  # apenas álbuns/EPs
+        "include_groups": "album",
         "limit": 50,
         "market": "BR"
     }
@@ -68,7 +67,6 @@ def pegar_lancamento_mais_recente(artist_id, token):
     unicos.sort(key=lambda x: x["release_date"], reverse=True)
     return unicos[0] if unicos else None
 
-# 🔁 Executa
 token = get_token()
 print("🎧 Lançamentos recentes:\n")
 nao_ouvidos = []
@@ -88,6 +86,12 @@ for banda in bandas:
             if nome_norm not in ouvidos_norm:
                 print(f"🔊 {banda} lançou: {nome_album} ({tipo}) — {data} [Você ainda não ouviu!]")
                 nao_ouvidos.append(f"{banda}: {nome_album} ({tipo}) — {data}")
+
+                # 💾 Atualiza o json automaticamente
+                albuns_ouvidos_dict[banda] = [nome_album]
+                with open("bandas_e_albuns.json", "w", encoding="utf-8") as f:
+                    json.dump(dados, f, indent=2, ensure_ascii=False)
+
             else:
                 print(f"✔️ {banda}: {nome_album} ({tipo}) — {data} [Você já ouviu]")
         else:
@@ -95,10 +99,9 @@ for banda in bandas:
     else:
         print(f"❌ Artista não encontrado: {banda}")
 
-# 💾 Salva em arquivo os lançamentos não ouvidos
 if nao_ouvidos:
     with open("nao_ouvidos.txt", "w", encoding="utf-8") as f:
         f.write("\n".join(nao_ouvidos))
-    print("\n📄 Arquivo 'nao_ouvidos.txt' salvo com os lançamentos que você ainda não ouviu.")
+    print("\n📄 Arquivo 'nao_ouvidos.txt' salvo.")
 else:
     print("\n✅ Nenhum lançamento novo não ouvido encontrado!")
