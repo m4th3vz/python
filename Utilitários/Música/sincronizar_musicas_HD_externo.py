@@ -2,20 +2,12 @@
 Script para sincronizar automaticamente a biblioteca de músicas do PC
 com um HD externo de forma incremental.
 
-O script copia apenas arquivos novos ou modificados, preservando toda
-a estrutura de subpastas (artistas, álbuns, anos, etc.).
+O script copia apenas arquivos que ainda não existem no destino,
+preservando toda a estrutura de subpastas (artistas, álbuns, anos, etc.).
 """
 
 import os
 import shutil
-import hashlib
-
-def hash_arquivo(caminho):
-    h = hashlib.md5()
-    with open(caminho, "rb") as f:
-        for bloco in iter(lambda: f.read(4096), b""):
-            h.update(bloco)
-    return h.hexdigest()
 
 # --------------------------------------------------
 # PASTAS RAIZ PARA SINCRONIZAÇÃO
@@ -46,20 +38,15 @@ for origem, destino in pastas_para_sincronizar:
 
             os.makedirs(os.path.dirname(caminho_destino), exist_ok=True)
 
+            # 🔹 Reconhecimento apenas por nome
             if not os.path.exists(caminho_destino):
                 shutil.copy2(caminho_origem, caminho_destino)
                 copiados += 1
                 print(f"Novo: {caminho_destino}")
-                continue
-
-            if hash_arquivo(caminho_origem) != hash_arquivo(caminho_destino):
-                shutil.copy2(caminho_origem, caminho_destino)
-                copiados += 1
-                print(f"Atualizado: {caminho_destino}")
 
     if copiados == 0:
         print("✔ Nenhuma alteração encontrada.")
     else:
-        print(f"✔ {copiados} arquivo(s) copiado(s) / atualizado(s).")
+        print(f"✔ {copiados} arquivo(s) copiado(s).")
 
 print("\nSincronização finalizada.")
