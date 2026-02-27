@@ -1,3 +1,10 @@
+"""
+Script para converter automaticamente imagens JPG/JPEG em arquivos ICO.
+O usuário informa a pasta de origem e a pasta de destino, e o programa
+redimensiona as imagens para 256x256 pixels, salvando-as no formato
+compatível com ícones do Windows.
+"""
+
 import os
 from PIL import Image
 
