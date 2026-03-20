@@ -1,11 +1,7 @@
-from decouple import config
 import requests
-import base64
 import json
 import re
-
-CLIENT_ID = config('CLIENT_ID')
-CLIENT_SECRET = config('CLIENT_SECRET')
+import time
 
 # Carrega o JSON
 with open("bandas_e_albuns.json", "r", encoding="utf-8") as f:
@@ -24,61 +20,91 @@ def normalizar(nome):
         "instrumental", "session", "sessions", "remastered", "remix", "remixed",
         "ao vivo", "acoustic"
     ]
+
     for palavra in palavras_ignoradas:
         nome = re.sub(rf"\b{palavra}\b", "", nome)
+
     nome = re.sub(r"\s+", " ", nome).strip()
     return nome
 
-def get_token():
-    auth = f"{CLIENT_ID}:{CLIENT_SECRET}"
-    b64_auth = base64.b64encode(auth.encode()).decode()
-    headers = {"Authorization": f"Basic {b64_auth}"}
-    data = {"grant_type": "client_credentials"}
-    r = requests.post("https://accounts.spotify.com/api/token", headers=headers, data=data)
-    return r.json().get("access_token")
 
-def buscar_artista_id(nome, token):
-    url = "https://api.spotify.com/v1/search"
-    headers = {"Authorization": f"Bearer {token}"}
-    params = {"q": nome, "type": "artist", "limit": 1}
-    r = requests.get(url, headers=headers, params=params)
-    items = r.json().get("artists", {}).get("items", [])
-    return items[0]["id"] if items else None
-
-def pegar_lancamento_mais_recente(artist_id, token):
-    url = f"https://api.spotify.com/v1/artists/{artist_id}/albums"
-    headers = {"Authorization": f"Bearer {token}"}
+# 🔍 Buscar artista
+def buscar_artista_mb(nome):
+    url = "https://musicbrainz.org/ws/2/artist/"
     params = {
-        "include_groups": "album",
-        "limit": 50,
-        "market": "BR"
+        "query": nome,
+        "fmt": "json",
+        "limit": 1
     }
-    r = requests.get(url, headers=headers, params=params)
-    albums = r.json().get("items", [])
 
+    headers = {
+        "User-Agent": "app-musica/1.0 (matheus-dev)"
+    }
+
+    r = requests.get(url, params=params, headers=headers)
+    data = r.json()
+
+    artistas = data.get("artists", [])
+    return artistas[0]["id"] if artistas else None
+
+
+# 🎧 Pegar lançamento mais recente
+def pegar_lancamento_mais_recente_mb(artist_id):
+    url = "https://musicbrainz.org/ws/2/release-group"
+    params = {
+        "artist": artist_id,
+        "fmt": "json",
+        "limit": 100
+    }
+
+    headers = {
+        "User-Agent": "app-musica/1.0 (matheus-dev)"
+    }
+
+    r = requests.get(url, params=params, headers=headers)
+    data = r.json()
+
+    releases = data.get("release-groups", [])
+
+    # filtrar só álbuns (ignorar singles, etc.)
+    releases = [r for r in releases if r.get("primary-type") == "Album"]
+
+    # manter só os que têm data
+    releases = [r for r in releases if "first-release-date" in r]
+
+    # remover duplicados pelo nome
     vistos = set()
     unicos = []
-    for album in albums:
-        nome = album["name"]
+
+    for rls in releases:
+        nome = rls["title"]
         if nome not in vistos:
             vistos.add(nome)
-            unicos.append(album)
+            unicos.append(rls)
 
-    unicos.sort(key=lambda x: x["release_date"], reverse=True)
+    # ordenar por data
+    unicos.sort(key=lambda x: x["first-release-date"], reverse=True)
+
     return unicos[0] if unicos else None
 
-token = get_token()
+
 print("🎧 Lançamentos recentes:\n")
+
 nao_ouvidos = []
 
 for banda in bandas:
-    artist_id = buscar_artista_id(banda, token)
+    artist_id = buscar_artista_mb(banda)
+
     if artist_id:
-        album = pegar_lancamento_mais_recente(artist_id, token)
+        # ⏳ evitar bloqueio da API (MusicBrainz pede isso)
+        time.sleep(1)
+
+        album = pegar_lancamento_mais_recente_mb(artist_id)
+
         if album:
-            nome_album = album["name"]
-            data = album["release_date"]
-            tipo = album["album_type"]
+            nome_album = album["title"]
+            data = album.get("first-release-date", "????")
+            tipo = album.get("primary-type", "Album")
 
             nome_norm = normalizar(nome_album)
             ouvidos_norm = [normalizar(a) for a in albuns_ouvidos_dict.get(banda, [])]
@@ -87,18 +113,22 @@ for banda in bandas:
                 print(f"🔊 {banda} lançou: {nome_album} ({tipo}) — {data} [Você ainda não ouviu!]")
                 nao_ouvidos.append(f"{banda}: {nome_album} ({tipo}) — {data}")
 
-                # 💾 Atualiza o json automaticamente
+                # 💾 Atualiza o JSON
                 albuns_ouvidos_dict[banda] = [nome_album]
+
                 with open("bandas_e_albuns.json", "w", encoding="utf-8") as f:
                     json.dump(dados, f, indent=2, ensure_ascii=False)
 
             else:
                 print(f"✔️ {banda}: {nome_album} ({tipo}) — {data} [Você já ouviu]")
+
         else:
             print(f"⚠️ Nenhum lançamento encontrado para {banda}")
     else:
         print(f"❌ Artista não encontrado: {banda}")
 
+
+# 📄 Salvar TXT
 if nao_ouvidos:
     with open("nao_ouvidos.txt", "w", encoding="utf-8") as f:
         f.write("\n".join(nao_ouvidos))
